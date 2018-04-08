@@ -12,7 +12,17 @@
 					<a href="/Kabang.Channel.WPC/index.html">워크샵가자</a>
 				</li>			
 			{% endif %}
-			
+			{% if page.path == "index.html" %}
+			<span class="title">
+				<li>
+					<a href="/Kabang.Channel.WPC/members.html">어쩌다가</a>
+				</li>
+			</span>			
+			{% else %}
+				<li>
+					<a href="/Kabang.Channel.WPC/members.html">어쩌다가</a>
+				</li>			
+			{% endif %}
 		</div>
 		<div class="description"> {{ site.motto }} </div>		
 		<ul class="social-links">
