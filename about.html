@@ -14,11 +14,19 @@ layout: default
         mapTypeId: google.maps.MapTypeId.ROADMAP
    }
    var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+
+   var marker = new google.maps.Marker({
+             position: myLatlng,
+             map: map,
+             title: "대구시청"
+	});
   }
  </script>
 </head>
 
 <body onload="initialize()">
  <div id="map_canvas"style="width:500px; height:300px;"></div>
+
+
 
 </div>
