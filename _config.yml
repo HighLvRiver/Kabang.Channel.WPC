@@ -2,7 +2,7 @@
 title: 카뱅채널|워크샵준비위원회
 motto: 아... 어떻게든 되겠지...
 email: jayden.yoo@kakaobank.com
-description: 점점 더 미쳐가고 있어 # this means to ignore newlines until "baseurl:"
+description: # this means to ignore newlines until "baseurl:"
   
 baseurl: "/Kabang.Channel.WPC/" # the subpath of your site, e.g. /blog/
 url: "https://highlvriver.github.io/Kabang.Channel.WPC/" # the base hostname & protocol for your site
