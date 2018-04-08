@@ -4,5 +4,32 @@ layout: default
 
 <div class="about">
 
-	
+
+<div style="width:100%; margin:0 auto;">
+ <!-- google map -->
+            <div class="b-google-map">
+  <div id="map_canvas" class="full-shadow" style="width: 100%; height: 400px; float:right;">
+  </div>
+    <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script src="jquery.gmap.min.js"></script> 
+    <script>
+     jQuery('#map_canvas').gMap({
+      maptype: 'ROADMAP',
+      scrollwheel: false,
+      zoom: 15,
+      markers: [
+       {
+        address: '37.4016073, 127.1065689', // 구글지도에서 주소 검색하면 위치나옴.
+        html: '',
+        popup: false,
+       }
+      ],
+     });
+    </script>
+ </div>
+ <!-- End google map --> 
+</div>
+
+
+
 </div>
