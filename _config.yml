@@ -1,11 +1,11 @@
 # Site settings
-title: Jayden Factory
-motto: 하고 있는 것과 하고 싶은 것들의 기록
-email: jumpers.jaeheung@gmail.com
+title: 카카오뱅크 채널파트 워크샵준비위원회
+motto: 될대로 되라지
+email: jayden.yoo@kakaobank.com
 description: > # this means to ignore newlines until "baseurl:"
-  growth hacking, marketing automation
+  
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "https://HighLvRiver.github.io" # the base hostname & protocol for your site
+url: "https://kabangchnl_wpc2.github.io" # the base hostname & protocol for your site
 twitter_username: 
 github_username: HighLvRiver
 
