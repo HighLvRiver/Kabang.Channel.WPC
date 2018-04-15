@@ -2,7 +2,7 @@
 title: 채널파트 워크샵준비위원회
 motto: 내래, 인민의 워크샵을 보여주가써
 email: jayden.yoo@kakaobank.com
-description: # this means to ignore newlines until "baseurl:"
+description: 내래, 인민의 워크샵을 보여주가써 # this means to ignore newlines until "baseurl:"
   
 baseurl: "/Kabang.Channel.WPC/" # the subpath of your site, e.g. /blog/
 url: "https://highlvriver.github.io/Kabang.Channel.WPC/" # the base hostname & protocol for your site
