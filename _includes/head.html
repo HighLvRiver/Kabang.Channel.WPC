@@ -13,5 +13,56 @@
   <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
   <script src="/scripts/jquery-1.11.2.min.js"></script>
   <script src="/scripts/pithy.js"></script>
+<style>
+		html, body {background-color:#222;color:#fff;height:100%;margin:0;padding:0;overflow:hidden;}
+		canvas, div {margin:0;padding:0;}
+		#container {position:relative;height:100%;max-width:900px;max-height:900px;width:100%;margin:0 auto;font-size:64px;font-weight:100;}
+		#canvas {position:absolute;z-index:1000;}
+		.title {padding:160px 40px;}
+		.pink {color:#e18bb8;}
+		.peacock {color:#ca3c74;}
+		.ember {color:#f39862;}
+		.gold {position:absolute;bottom:80px;right:40px;color:#fac76c;font-size:48px;}
+		
+        @media screen and (max-width: 700px) {
+            .title {padding-top:100px;font-size:50px;}
+            .gold {bottom:80px;font-size:36px;}
+        }
 
+        @media screen and (max-width: 500px) {
+            .title {padding-top:80px;font-size:36px;}
+            .gold {bottom:60px;font-size:30px;}
+        }
+
+        @media screen and (max-width: 400px) {
+            .title {padding:80px 34px;font-size:36px;}
+            .gold {bottom:60px;font-size:30px;}
+        }
+	</style>
+  
+		html, body {background-color:#222;color:#fff;height:100%;margin:0;padding:0;overflow:hidden;}
+		canvas, div {margin:0;padding:0;}
+		#container {position:relative;height:100%;max-width:900px;max-height:900px;width:100%;margin:0 auto;font-size:64px;font-weight:100;}
+		#canvas {position:absolute;z-index:1000;}
+		.title {padding:160px 40px;}
+		.pink {color:#e18bb8;}
+		.peacock {color:#ca3c74;}
+		.ember {color:#f39862;}
+		.gold {position:absolute;bottom:80px;right:40px;color:#fac76c;font-size:48px;}
+		
+        @media screen and (max-width: 700px) {
+            .title {padding-top:100px;font-size:50px;}
+            .gold {bottom:80px;font-size:36px;}
+        }
+
+        @media screen and (max-width: 500px) {
+            .title {padding-top:80px;font-size:36px;}
+            .gold {bottom:60px;font-size:30px;}
+        }
+
+        @media screen and (max-width: 400px) {
+            .title {padding:80px 34px;font-size:36px;}
+            .gold {bottom:60px;font-size:30px;}
+        }
+	
 </head>
