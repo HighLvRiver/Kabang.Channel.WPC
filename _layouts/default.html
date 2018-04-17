@@ -10,6 +10,155 @@
       <div class="wrapper">
 	  
         {{ content }}
+
+         <script>
+        
+        function Particle( x, y, radius ) {
+            this.init( x, y, radius );
+        }
+
+        Particle.prototype = {
+
+            init: function( x, y, radius ) {
+
+                this.alive = true;
+
+                this.radius = radius || 10;
+                this.wander = 0.15;
+                this.theta = random( TWO_PI );
+                this.drag = 0.92;
+                this.color = '#fff';
+
+                this.x = x || 0.0;
+                this.y = y || 0.0;
+
+                this.vx = 0.0;
+                this.vy = 0.0;
+            },
+
+            move: function() {
+
+                this.x += this.vx;
+                this.y += this.vy;
+
+                this.vx *= this.drag;
+                this.vy *= this.drag;
+
+                this.theta += random( -0.5, 0.5 ) * this.wander;
+                this.vx += sin( this.theta ) * 0.1;
+                this.vy += cos( this.theta ) * 0.1;
+
+                this.radius *= 0.96;
+                this.alive = this.radius > 0.5;
+            },
+
+            draw: function( ctx ) {
+
+                ctx.beginPath();
+                ctx.arc( this.x, this.y, this.radius, 0, TWO_PI );
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+        };
+
+        var MAX_PARTICLES = 280;
+        var COLOURS = [ '#69D2E7', '#A7DBD8', '#E0E4CC', '#F38630', '#FA6900', '#FF4E50', '#F9D423' ];
+
+        var particles = [];
+        var pool = [];
+
+        var demo = Sketch.create({
+            container: document.getElementById( 'canvas' ),
+            retina: 'auto'
+        });
+
+        demo.setup = function() {
+          var pos = 0;
+            var moveData = JSON.parse("[[5,715],[19,706],[45,691],[60,682],[86,664],[98,655],[117,639],[127,631],[147,616],[155,610],[175,593],[183,587],[205,570],[213,564],[235,549],[247,542],[271,529],[285,520],[297,514],[334,498],[367,484],[386,478],[406,472],[442,462],[465,457],[510,451],[535,448],[580,443],[609,441],[655,440],[682,440],[700,441],[746,447],[785,455],[806,461],[832,472],[838,477],[846,489],[846,494],[837,510],[826,520],[803,537],[788,545],[756,554],[738,557],[675,560],[652,559],[619,555],[576,543],[565,537],[551,520],[548,508],[549,486],[551,476],[564,448],[571,438],[595,416],[615,404],[662,387],[696,381],[757,376],[785,376],[860,386],[882,392],[923,410],[936,423],[945,444],[944,452],[934,469],[920,477],[889,488],[873,489],[848,486],[839,483],[822,473],[815,465],[809,450],[809,439],[810,429],[817,408],[825,397],[849,375],[875,360],[948,328],[1007,304],[1126,265],[1182,249],[1310,214]]");
+
+      moveData.forEach(function(item) {
+        item[0] = parseInt((item[0] / 1310) * window.innerWidth);
+      })            
+
+          window.intv = setInterval(function () {
+            setTimeout(function() {
+              if (!moveData[pos]) {
+                clearInterval(window.intv);
+                return;
+              }
+
+              demo.spawn( moveData[pos][0], moveData[pos][1] ); 
+              demo.spawn( moveData[pos][0] + random(-100, 100), moveData[pos][1] + random(-100, 100) ); 
+              pos++;  
+            }, 50)
+            
+          }, 11)
+            
+        };
+
+        demo.spawn = function( x, y ) {
+            
+            var particle, theta, force;
+
+            if ( particles.length >= MAX_PARTICLES )
+                pool.push( particles.shift() );
+
+            particle = pool.length ? pool.pop() : new Particle();
+            particle.init( x, y, random( 5, 40 ) );
+
+            particle.wander = random( 0.5, 2.0 );
+            particle.color = random( COLOURS );
+            particle.drag = random( 0.9, 0.99 );
+
+            theta = random( TWO_PI );
+            force = random( 2, 8 );
+
+            particle.vx = sin( theta ) * force;
+            particle.vy = cos( theta ) * force;
+
+            particles.push( particle );
+        };
+
+        demo.update = function() {
+
+            var i, particle;
+
+            for ( i = particles.length - 1; i >= 0; i-- ) {
+
+                particle = particles[i];
+
+                if ( particle.alive ) particle.move();
+                else pool.push( particles.splice( i, 1 )[0] );
+            }
+        };
+
+        demo.draw = function() {
+
+            demo.globalCompositeOperation  = 'lighter';
+
+            for ( var i = particles.length - 1; i >= 0; i-- ) {
+                particles[i].draw( demo );
+            }
+        };
+
+        demo.mousemove = function() {
+
+            var particle, theta, force, touch, max, i, j, n;
+
+            for ( i = 0, n = demo.touches.length; i < n; i++ ) {
+
+                touch = demo.touches[i], max = random( 1, 4 );
+                for ( j = 0; j < max; j++ ) {
+                  demo.spawn( touch.x, touch.y );
+                }
+
+            }
+        };
+
+
+        
+    </script>
+  
       </div>
     </div>
     
