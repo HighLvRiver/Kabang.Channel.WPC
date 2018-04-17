@@ -5,10 +5,7 @@
   <body>
     {% include header.html %}
     <br>
-	  <div id="canvas">
-		  <canvas class=" sketch">
-		  </canvas>
-	  </div>
+
     <div class="page-content">
       <div class="wrapper">
         {{ content }}
@@ -72,7 +69,7 @@
         var pool = [];
 
         var demo = Sketch.create({
-            container: document.getElementById( 'canvas' ),
+            container: document.getElementById( 'page-content' ),
             retina: 'auto'
         });
 
