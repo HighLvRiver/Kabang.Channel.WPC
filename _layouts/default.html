@@ -8,6 +8,10 @@
 
     <div class="page-content">
       <div class="wrapper">
+	   <div id="canvas">
+		   <canvas class=" sketch">
+		   </canvas>
+	      </div> 
         {{ content }}
       </div>
     </div>
@@ -67,9 +71,9 @@
 
         var particles = [];
         var pool = [];
-
+	    
         var demo = Sketch.create({
-            container: document.getElementById( 'page-content' ),
+            container: document.getElementById( 'canvas' ),
             retina: 'auto'
         });
 
